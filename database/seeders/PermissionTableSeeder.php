@@ -21,6 +21,14 @@ class PermissionTableSeeder extends Seeder
             'role-create',
             'role-edit',
             'role-delete',
+            'driver-list',
+            'driver-create',
+            'driver-edit',
+            'driver-delete',
+            'customer-list',
+            'customer-edit',
+            'customer-create',
+            'customer-delete',
          ];
          $guard_name = "web";
  
@@ -28,13 +36,12 @@ class PermissionTableSeeder extends Seeder
              Permission::findOrCreate($name,$guard_name);
          }
  
-         $permissions = Permission::pluck("name")->all();
-         $users = User::whereHas("roles", function($q) {
-             $q->whereIn("name", ["Admin"]);
-         })
-             ->get();
-         foreach ($users as $user){
-             $user->syncPermissions($permissions);
-         }
+        //  $permissions = Permission::pluck("name")->all();
+        //  $users = User::whereHas("roles", function($q) {
+        //      $q->whereIn("name", ["Admin"]);
+        //  })->get();
+        //  foreach ($users as $user){
+        //      $user->syncPermissions($permissions);
+        //  }
     }
 }

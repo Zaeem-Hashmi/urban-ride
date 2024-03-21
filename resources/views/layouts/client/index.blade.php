@@ -35,7 +35,7 @@
     <header class="header_section">
         <div class="container-fluid">
           <nav class="navbar navbar-expand-lg custom_nav-container">
-            <a class="navbar-brand" href="index.html">
+            <a class="navbar-brand" href="/">
               <span>
                 Urban Ride
               </span>
@@ -43,7 +43,7 @@
     
             <div class="navbar-collapse" id="">
               <div class="user_option">
-                <a href="">
+                <a href="{{ route('login') }}">
                   Login
                 </a>
               </div>

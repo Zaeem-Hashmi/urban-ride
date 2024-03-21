@@ -32,8 +32,8 @@
     <!-- BEGIN: Page CSS-->
     <link rel="stylesheet" type="text/css" href="{{asset('app-assets/css/core/menu/menu-types/vertical-menu.css')}}">
     <link rel="stylesheet" type="text/css" href="{{asset('app-assets/css/pages/dashboard-ecommerce.css')}}">
-    <link rel="stylesheet" type="text/css" href="{{asset('app-assets/css/plugins/charts/chart-apex.css')}}">
-    <link rel="stylesheet" type="text/css" href="{{asset('app-assets/css/plugins/extensions/ext-component-toastr.css')}}">
+    {{-- <link rel="stylesheet" type="text/css" href="{{asset('app-assets/css/plugins/charts/chart-apex.css')}}"> --}}
+    {{-- <link rel="stylesheet" type="text/css" href="{{asset('app-assets/css/plugins/extensions/ext-component-toastr.css')}}"> --}}
     <!-- END: Page CSS-->
 
     <!-- BEGIN: Custom CSS-->
@@ -88,8 +88,8 @@
     <!-- BEGIN Vendor JS-->
 
     <!-- BEGIN: Page Vendor JS-->
-    <script src="{{asset('app-assets/vendors/js/charts/apexcharts.min.js')}}"></script>
-    <script src="{{asset('app-assets/vendors/js/extensions/toastr.min.js')}}"></script>
+    {{-- <script src="{{asset('app-assets/vendors/js/charts/apexcharts.min.js')}}"></script> --}}
+    {{-- <script src="{{asset('app-assets/vendors/js/extensions/toastr.min.js')}}"></script> --}}
     <!-- END: Page Vendor JS-->
 
     <!-- BEGIN: Theme JS-->

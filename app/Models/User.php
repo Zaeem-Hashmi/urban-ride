@@ -42,4 +42,25 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+
+    public function driver()
+    {
+        return $this->hasOne(Driver::class);
+    }
+
+    public function ridesAsCustomer()
+    {
+        return $this->hasMany(Ride::class, 'customer_id');
+    }
+
+    public function ridesAsDriver()
+    {
+        return $this->hasMany(Ride::class, 'driver_id');
+    }
+
+    public function images()
+    {
+        return $this->morphMany(Image::class, 'imageable');
+    }
 }
