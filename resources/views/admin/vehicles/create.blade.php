@@ -115,7 +115,7 @@
                                 <div class="col-md-6 col-12">
                                     <div class="form-group">
                                         <label for="select-country1">Driver</label>
-                                        <select class="form-control" id="select-country1" required name="driver_id">
+                                        <select class="form-control" id="select-country1"  name="driver_id">
 
                                             @foreach ($drivers as $driver)
                                           

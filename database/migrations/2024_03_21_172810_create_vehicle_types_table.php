@@ -31,8 +31,8 @@ return new class extends Migration
             $table->date('rta_issue_date')->nullable();
             $table->date('rta_expiry_date')->nullable();
             $table->boolean('is_active')->default(0);
-            $table->unsignedBigInteger('user_id');
-            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+            $table->unsignedBigInteger('driver_id');
+            $table->foreign('driver_id')->references('id')->on('drivers')->onDelete('cascade');
             $table->timestamps();
         });
     }

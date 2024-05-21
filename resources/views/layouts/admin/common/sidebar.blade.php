@@ -55,9 +55,9 @@
             </li>
             <li class=" nav-item"><a class="d-flex align-items-center" href="#"><i data-feather='gitlab'></i><span class="menu-title text-truncate" data-i18n="Invoice">Drivers</span></a>
                 <ul class="menu-content">
-                    <li><a class="d-flex align-items-center" href="#"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="List">List</span></a>
+                    <li><a class="d-flex align-items-center" href="{{route('driver.index')}}"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="List">List</span></a>
                     </li>
-                    <li><a class="d-flex align-items-center" href="#"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="List">Create</span></a>
+                    <li><a class="d-flex align-items-center" href="{{route('driver.create')}}"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="List">Create</span></a>
                     </li>
                 </ul>
             </li>
