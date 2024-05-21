@@ -15,14 +15,38 @@ return new class extends Migration
     {
         Schema::create('drivers', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('user_id');
-            $table->unsignedBigInteger('vehicle_type_id');
-
+           
+            $table->string('name')->nullable();
+            $table->string('email')->nullable();
+            $table->boolean('is_available')->default(0);
+            $table->string('address')->nullable();
+            $table->string('username')->nullable();
+            $table->string('password')->nullable();
+            $table->bigInteger('phone_number')->nullable();
+            $table->string('image')->nullable();
+            $table->string('passport')->nullable();
+            $table->date('passport_issue_date')->nullable();
+            $table->date('passport_expiry_date')->nullable();
+            $table->string('visa')->nullable();
+            $table->date('visa_issue_date')->nullable();
+            $table->date('visa_expiry_date')->nullable();
+            $table->string('ID_card')->nullable();
+            $table->date('ID_issue_date')->nullable();
+            $table->date('ID_expiry_date')->nullable();
+            $table->string('rta')->nullable();
+            $table->date('rta_issue_date')->nullable();
+            $table->date('rta_expiry_date')->nullable();
+            $table->string('driving_license')->nullable();
+            $table->date('driving_license_issue_date')->nullable();
+            $table->date('driving_license_expiry_date')->nullable();
+            $table->string('beneficiary_name')->nullable();
+            $table->string('IBAN')->nullable();
+            $table->string('bank_name')->nullable();
+            $table->string('branch_name')->nullable();
 
             $table->string('vehicle_number');
-            $table->boolean('is_available')->default(0);
-
-
+            $table->unsignedBigInteger('user_id');
+            $table->unsignedBigInteger('vehicle_type_id');
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->foreign('vehicle_type_id')->references('id')->on('vehicle_types')->onDelete('cascade');
             $table->timestamps();

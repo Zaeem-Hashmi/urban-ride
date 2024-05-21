@@ -16,6 +16,23 @@ return new class extends Migration
         Schema::create('vehicle_types', function (Blueprint $table) {
             $table->id();
             $table->string('name');
+            $table->string('number');
+            $table->string('model')->nullable();
+            $table->year('year');
+            $table->string('Chassis_number')->nullable();
+            $table->string('image')->nullable();
+            $table->string('insurance_number')->nullable();
+            $table->string('insurance_company')->nullable();
+            $table->date('insurance_issue_date');
+            $table->date('insurance_expiry_date');
+            $table->date('registration_issue_date');
+            $table->date('registration_expiry_date');
+            $table->string('rta_permit')->nullable();
+            $table->date('rta_issue_date')->nullable();
+            $table->date('rta_expiry_date')->nullable();
+            $table->boolean('is_active')->default(0);
+            $table->unsignedBigInteger('user_id');
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->timestamps();
         });
     }
