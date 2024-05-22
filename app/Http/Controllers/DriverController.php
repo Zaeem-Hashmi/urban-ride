@@ -12,9 +12,8 @@ use Yajra\DataTables\Facades\DataTables;
 class DriverController extends Controller
 {
     public function create(){
-        $vehicle_types =VehicleType::all();
         $users =User::get();
-        return view('admin.driver.create',compact('vehicle_types','users'));
+        return view('admin.driver.create',compact('users'));
     }
     public function store(Request $request,Driver $driver){
         $input = $request->all();
@@ -84,4 +83,76 @@ class DriverController extends Controller
             return $user;
         })->toJson();
     }
+    public function edit(Driver $driver){
+        $users =User::get();
+        return view('admin.driver.edit',compact('driver','vehicle_types','users'));
+    }
+    public function update(Request $request, Driver $driver){
+        $input = $request->all();
+        if ($request->hasFile('image')) {
+            $file = $request->file('image');
+            $filename = time() . '.' . $file->getClientOriginalExtension();
+            $filePath = 'uploads/driver/' . $filename;
+    
+            // Store the file
+            Storage::disk('public')->put($filePath, file_get_contents($file));
+    
+            $input["image"] = "$filePath";
+        }else {
+            unset($input['rta_permit']);}
+        if ($request->hasFile('passport')) {
+            $file = $request->file('passport');
+            $filename = time() . '.' . $file->getClientOriginalExtension();
+            $filePath = 'uploads/driver/' . $filename;
+    
+            // Store the file
+            Storage::disk('public')->put($filePath, file_get_contents($file));
+    
+            $input["passport"] = "$filePath";
+        }else {
+            unset($input['rta_permit']);}
+        if ($request->hasFile('visa')) {
+            $file = $request->file('visa');
+            $filename = time() . '.' . $file->getClientOriginalExtension();
+            $filePath = 'uploads/driver/' . $filename;
+    
+            // Store the file
+            Storage::disk('public')->put($filePath, file_get_contents($file));
+    
+            $input["visa"] = "$filePath";
+        }else {
+            unset($input['rta_permit']);}
+        if ($request->hasFile('rta')) {
+            $file = $request->file('rta');
+            $filename = time() . '.' . $file->getClientOriginalExtension();
+            $filePath = 'uploads/driver/' . $filename;
+    
+            // Store the file
+            Storage::disk('public')->put($filePath, file_get_contents($file));
+    
+            $input["rta"] = "$filePath";
+        }else {
+            unset($input['rta_permit']);}
+        if ($request->hasFile('driving_license')) {
+            $file = $request->file('driving_license');
+            $filename = time() . '.' . $file->getClientOriginalExtension();
+            $filePath = 'uploads/driver/' . $filename;
+    
+            // Store the file
+            Storage::disk('public')->put($filePath, file_get_contents($file));
+    
+            $input["driving_license"] = "$filePath";
+        }else {
+            unset($input['rta_permit']);
+        $driver->update($input);
+        return redirect()->back();
+        }
+        
+
+    }
+    public function delete(Driver $driver) {
+        $driver->delete();
+        return redirect()->back();
+    }
+
 }
