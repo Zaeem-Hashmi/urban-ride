@@ -56,7 +56,7 @@
 @endsection
 @section('page-js')
     <script>
-        $(function() {
+       $(function() {
             $(document).ready(function() {
                 $.ajaxSetup({
                     headers: {
@@ -70,134 +70,140 @@
                 ajax: {
                     url: '{{ route('driver.ajax') }}',
                     type: "POST",
-                    success: function(data) {
-                        console.log('AJAX Data received:', data);
-                    },
-                    error: function(xhr, status, error) {
-                        console.error('AJAX Error:', error);
-                    }
+
                 },
                 columns: [{
-                        data: 'name',
-                        defaultContent: 'No name'
-                    },
+                data: 'name',
+                defaultContent: 'No name'
+                },
 
-                    {
-                        data: 'email'
-                    },
-                    {
-                        data: 'is_available'
-                    },
-                    {
-                        data: 'address'
-                    },
-                    {
-                        data: 'username'
-                    },
-                    {
-                        data: 'phone_number'
-                    },
-                    {
-                        data: 'image',
+                {
+                data: 'email'
+                },
+                {
+                data: 'is_available'
+                },
+                {
+                data: 'address'
+                },
+                {
+                data: 'username'
+                },
+                {
+                data: 'phone_number'
+                },
+                {
+                data: 'image',
+                render: function(data) {
+                return `<img src='/storage/${data}' style='width:70px;height:70px'>`;
+                }
+                },
+                {
+                data: 'passport',
+                render: function(data) {
+                return `<img src='/storage/${data}' style='width:70px;height:70px'>`;
+                }
+                },
+                {
+                data: 'passport_issue_date'
+                },
+                {
+                data: 'passport_expiry_date'
+                },
+                {
+                data: 'visa',
+                render: function(data) {
+                return `<img src='/storage/${data}' style='width:70px;height:70px'>`;
+                }
+                },
+                {
+                data: 'visa_issue_date'
+                },
+
+                {
+                data: 'visa_expiry_date'
+                },
+                {
+                data: 'ID_card',
+                render: function(data) {
+                return `<img src='/storage/${data}' style='width:70px;height:70px'>`;
+                }
+                },
+                {
+                data: 'ID_issue_date'
+                },
+
+                {
+                data: 'ID_expiry_date'
+                },
+                {
+                data: 'rta',
+                render: function(data) {
+                return `<img src='/storage/${data}' style='width:70px;height:70px'>`;
+                }
+                },
+                {
+                data: 'rta_issue_date'
+                },
+
+                {
+                data: 'rta_expiry_date'
+                },
+                {
+                data: 'driving_license',
+                render: function(data) {
+                return `<img src='/storage/${data}' style='width:70px;height:70px'>`;
+                }
+                },
+                {
+                data: 'driving_license_issue_date'
+                },
+
+                {
+                data: 'driving_license_expiry_date'
+                },
+
+                {
+                data: 'beneficiary_name'
+                },
+
+                {
+                data: 'IBAN'
+                },
+                {
+                data: 'bank_name'
+                },
+                {
+                data: 'branch_name'
+                },
+                {
+                data: 'vehicle_number'
+                },
+                {
+                data: 'user'
+                },
+
+
+                {
+                        data: 'id',
                         render: function(data) {
-                            return `<img src='/storage/${data}' style='width:70px;height:70px'>`;
+                            return `
+                            <div class='d-flex'>
+                        <button type="button" class="btn btn-secondary p-2 my-2" onclick="alertConfirm('{{ route('driver.edit', ['driver' => ':vehicleType']) }}'.replace(/:vehicleType/g, ${data}),'confirm','Are you sure you want to edit','warning','edit','cancel')">
+                          Edit
+                        </button>
+                        <button type="button" class="btn btn-danger p-2 my-2" onclick="alertConfirm('{{ route('driver.delete', ['driver' => ':vehicleType']) }}'.replace(/:vehicleType/g, ${data}),'confirm','Are you sure you want to delete','warning','delete','cancel')"">
+                          Delete
+                        </button>
+                        </div>`;
                         }
                     },
-                    {
-                        data: 'passport',
-                        render: function(data) {
-                            return `<img src='/storage/${data}' style='width:70px;height:70px'>`;
-                        }
-                    },
-                    {
-                        data: 'passport_issue_date'
-                    },
-                    {
-                        data: 'passport_expiry_date'
-                    },
-                    {
-                        data: 'visa',
-                        render: function(data) {
-                            return `<img src='/storage/${data}' style='width:70px;height:70px'>`;
-                        }
-                    },
-                    {
-                        data: 'visa_issue_date'
-                    },
-
-                    {
-                        data: 'visa_expiry_date'
-                    },
-                    {
-                        data: 'ID_card',
-                        render: function(data) {
-                            return `<img src='/storage/${data}' style='width:70px;height:70px'>`;
-                        }
-                    },
-                    {
-                        data: 'ID_issue_date'
-                    },
-
-                    {
-                        data: 'ID_expiry_date'
-                    },
-                    {
-                        data: 'rta',
-                        render: function(data) {
-                            return `<img src='/storage/${data}' style='width:70px;height:70px'>`;
-                        }
-                    },
-                    {
-                        data: 'rta_issue_date'
-                    },
-
-                    {
-                        data: 'rta_expiry_date'
-                    },
-                    {
-                        data: 'driving_license',
-                        render: function(data) {
-                            return `<img src='/storage/${data}' style='width:70px;height:70px'>`;
-                        }
-                    },
-                    {
-                        data: 'driving_license_issue_date'
-                    },
-
-                    {
-                        data: 'driving_license_expiry_date'
-                    },
-
-                    {
-                        data: 'beneficiary_name'
-                    },
-
-                    {
-                        data: 'IBAN'
-                    },
-                    {
-                        data: 'bank_name'
-                    },
-                    {
-                        data: 'branch_name'
-                    },
-                    {
-                        data: 'vehicle_number'
-                    },
-                    {
-                        data: 'vehicle'
-                    },
-                    {
-                        data: 'user'
-                    },
-
-
-
 
                 ]
 
-            });
-            rawColumns: ['image']
-        });
+                });
+                rawColumns: ['image']
+                });
+
     </script>
 @endsection

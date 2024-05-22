@@ -76,8 +76,8 @@ class DriverController extends Controller
     public function ajax(){
         $query = Driver::query();
         return DataTables::eloquent($query)->addColumn('vehicle', function (Driver $driver) {
-            $vehicle = $driver->vehicles->name;
-            return $vehicle;
+            $vehicle = $driver->vehicles()->get()->pluck("name")->toArray();
+            return implode(',',$vehicle);
         })->addColumn('user', function (Driver $driver) {
             $user = $driver->user->name;
             return $user;
