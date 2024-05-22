@@ -26,7 +26,7 @@ return new class extends Migration
             $table->longText('desc')->nullable();
             $table->string('status')->default('requested');
             $table->foreign('customer_id')->references('id')->on('users')->onDelete('cascade');
-            $table->foreign('driver_id')->references('id')->on('users')->onDelete('cascade');
+            $table->foreign('driver_id')->references('id')->on('drivers')->onDelete('cascade');
             $table->timestamps();
         });
     }
