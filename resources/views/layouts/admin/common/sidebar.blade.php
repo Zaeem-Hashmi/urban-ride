@@ -43,6 +43,8 @@
             </li>
             <li class=" nav-item"><a class="d-flex align-items-center" href="{{ route('users.index') }}"><i data-feather="mail"></i><span class="menu-title text-truncate" data-i18n="Email">Users</span></a>
             </li>
+            <li class=" nav-item"><a class="d-flex align-items-center" href="{{ route('booking.index') }}"><i data-feather="mail"></i><span class="menu-title text-truncate" data-i18n="Email">Bookings</span></a>
+            </li>
             <li class=" nav-item"><a class="d-flex align-items-center" href="{{ route('roles.index') }}"><i data-feather="message-square"></i><span class="menu-title text-truncate" data-i18n="Chat">Roles</span></a>
             </li>
             <li class=" nav-item"><a class="d-flex align-items-center" href="#"><i data-feather='gitlab'></i><span class="menu-title text-truncate" data-i18n="vehicles">Vehicles</span></a>

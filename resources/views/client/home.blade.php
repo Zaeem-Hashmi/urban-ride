@@ -4,24 +4,49 @@
     <!-- book section -->
   <section class="book_section">
     <div class="form_container">
-      <form action="#">
+      <form action="{{route('booking.store')}}" method="POST">
+        @csrf
         <div class="form-row">
           <div class="col-lg-8">
             <div class="form-row">
               <div class="col-md-6">
-                <label for="parkingName">Pick Up Locaion</label>
-                <input type="text" class="form-control" placeholder="acb ">
+                <label for="parkingName">Pick Up Date</label>
+                <input type="date" class="form-control" placeholder="Pick Up Date " name="pickup-date">
+              </div>
+              <div class="col-md-6">
+                <label for="parkingNumber">Pickup time</label>
+                <input type="time" class="form-control" placeholder="pickup-time " name="pickup-time">
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="col-md-12">
+                <label for="parkingNumber">Pickup Location</label>
+                <input type="text" class="form-control" placeholder="pickup-location " name="pickup-location">
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="col-md-6">
+                <label for="parkingName">No of Passengers</label>
+                <input type="number" class="form-control" placeholder="no-of-passengers" name="no-of-passengers">
               </div>
               <div class="col-md-6">
                 <label for="parkingNumber">Drop Location</label>
-                <input type="text" class="form-control" placeholder="acb ">
+                <input type="text" class="form-control" placeholder="Drop Location" name="dropOff-location">
               </div>
+            </div>
+
+            <div class="form-row">
+              <div class="col-md-12">
+                <label for="parkingName">Description</label>
+                <textarea name="desc" class="form-control"  id="" cols="30" rows="5"></textarea>
+              </div>
+              
             </div>
           </div>
           <div class="col-lg-4">
             <div class="btn-container">
               <button type="submit" class="">
-                Search
+                Book
               </button>
             </div>
           </div>

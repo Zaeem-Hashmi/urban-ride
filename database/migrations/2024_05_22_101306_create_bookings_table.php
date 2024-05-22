@@ -13,19 +13,18 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('rides', function (Blueprint $table) {
+        Schema::create('bookings', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('customer_id')->nullable();
-            $table->unsignedBigInteger('driver_id')->nullable();
-
-            $table->string('pickup_location');
-            $table->string('dropoff_location');
-            $table->decimal('fare_amount',10,2);
+            $table->date('pickup-date');
+            $table->time('pickup-time');
+            $table->string('passenger-name')->nullable();
+            $table->string('pickup-location');
+            $table->integer('no-of-passengers');
+            $table->string('dropOff-location');
+            $table->longText('desc')->nullable();
             $table->string('status')->default('requested');
-            
-
             $table->foreign('customer_id')->references('id')->on('users')->onDelete('cascade');
-            $table->foreign('driver_id')->references('id')->on('users')->onDelete('cascade');
             $table->timestamps();
         });
     }
@@ -37,6 +36,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('rides');
+        Schema::dropIfExists('bookings');
     }
 };
