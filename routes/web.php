@@ -46,8 +46,8 @@ Route::group(['middleware' => ['auth']], function() {
         Route::post('/store',[DriverController::class,'store'])->name('driver.store');
         Route::get('/index',[DriverController::class,'index'])->name('driver.index');
         Route::post('/',[DriverController::class,'ajax'])->name('driver.ajax');
-        // Route::get('/{driver}/edit',[DriverController::class,'edit'])->name('driver.edit');
-        // Route::put('/{driver}/update',[DriverController::class,'update'])->name('driver.update');
-        // Route::get('/{driver}/delete',[DriverController::class,'delete'])->name('driver.delete');
+        Route::get('/{driver}/edit',[DriverController::class,'edit'])->name('driver.edit');
+        Route::put('/{driver}/update',[DriverController::class,'update'])->name('driver.update');
+        Route::get('/{driver}/delete',[DriverController::class,'delete'])->name('driver.delete');
     });
 });
