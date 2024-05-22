@@ -57,7 +57,7 @@ Route::group(['middleware' => ['auth']], function() {
         Route::get('/index',[BookingController::class,'index'])->name('booking.index');
         Route::post('/',[BookingController::class,'ajax'])->name('booking.ajax');
         Route::get('/{booking}/assignDriver',[BookingController::class,'assignDriver'])->name('booking.assignDriver');
-        // Route::put('/{booking}/update',[BookingController::class,'update'])->name('booking.update');
+        Route::put('/{booking}/update',[BookingController::class,'update'])->name('booking.update');
         Route::get('/{booking}/delete',[BookingController::class,'delete'])->name('booking.delete');
     });
 });

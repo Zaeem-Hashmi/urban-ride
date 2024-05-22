@@ -16,6 +16,7 @@ return new class extends Migration
         Schema::create('bookings', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('customer_id')->nullable();
+            $table->unsignedBigInteger('driver_id')->nullable();
             $table->date('pickup-date');
             $table->time('pickup-time');
             $table->string('passenger-name')->nullable();
@@ -25,6 +26,7 @@ return new class extends Migration
             $table->longText('desc')->nullable();
             $table->string('status')->default('requested');
             $table->foreign('customer_id')->references('id')->on('users')->onDelete('cascade');
+            $table->foreign('driver_id')->references('id')->on('users')->onDelete('cascade');
             $table->timestamps();
         });
     }

@@ -10,7 +10,7 @@
                         <h4 class="card-title">Assign Driver</h4>
                     </div>
                     <div class="card-body">
-                        <form class="form" action="" method="POST">
+                        <form class="form" action="{{route('booking.update',[$booking->id])}}" method="POST">
                             @csrf
                             @method("PUT")
                             <div class="row">
@@ -18,7 +18,6 @@
                                     <div class="form-group">
                                         <label for="select-country1">Available Drivers</label>
                                         <select class="form-control" id="select-country1"  name="driver_id">
-
                                             @foreach ($drivers as $driver)
                                           
                                             <option value={{$driver->id}}>{{$driver->name}}</option>

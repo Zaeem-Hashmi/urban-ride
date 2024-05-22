@@ -34,7 +34,10 @@ class BookingController extends Controller
         $drivers = Driver::where('is_available', 0)->get();
         return view('admin.Bookings.edit',compact('booking','drivers'));
     }
-    public function update(Request $request){
-        
+    public function update(Request $request,Booking $booking){
+      $input = $request->all();
+      $input['status'] = 'done';
+      $booking->update($input);
+      return redirect()->back();
     }
 }
