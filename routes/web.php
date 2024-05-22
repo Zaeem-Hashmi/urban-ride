@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\BookingController;
 use App\Http\Controllers\DriverController;
 use App\Http\Controllers\RoleController;
 use App\Http\Controllers\UserController;
@@ -49,5 +50,14 @@ Route::group(['middleware' => ['auth']], function() {
         Route::get('/{driver}/edit',[DriverController::class,'edit'])->name('driver.edit');
         Route::put('/{driver}/update',[DriverController::class,'update'])->name('driver.update');
         Route::get('/{driver}/delete',[DriverController::class,'delete'])->name('driver.delete');
+    });
+    Route::group(['prefix'=>'booking'],function () {
+        // Route::get('/create',[DriverController::class,'create'])->name('driver.create');
+        Route::post('/store',[BookingController::class,'store'])->name('booking.store');
+        Route::get('/index',[BookingController::class,'index'])->name('booking.index');
+        Route::post('/',[BookingController::class,'ajax'])->name('booking.ajax');
+        Route::get('/{booking}/assignDriver',[BookingController::class,'assignDriver'])->name('booking.assignDriver');
+        Route::put('/{booking}/update',[BookingController::class,'update'])->name('booking.update');
+        Route::get('/{booking}/delete',[BookingController::class,'delete'])->name('booking.delete');
     });
 });

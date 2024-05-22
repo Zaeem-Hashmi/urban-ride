@@ -21,19 +21,19 @@
                                 </div>
                                 <div class="col-md-6 col-12">
                                     <div class="form-group">
-                                        <label for="last-name-column">email</label>
+                                        <label for="last-name-column">Email</label>
                                         <input type="email" id="last-name-column" class="form-control" placeholder="Email" name="email" />
                                     </div>
                                 </div>
                                 <div class="col-md-6 col-12">
                                     <div class="form-group">
-                                        <label for="city-column">address</label>
+                                        <label for="city-column">Address</label>
                                         <input type="text" id="city-column" class="form-control" placeholder="City" name="address" />
                                     </div>
                                 </div>
                                 <div class="col-md-6 col-12">
                                     <div class="form-group">
-                                        <label>username</label>
+                                        <label>Username</label>
                                         {{-- <input type="text" class="form-control flatpickr-inline" placeholder="YYYY-MM-DD" /> --}}
                                         <input type="text"  class="form-control flatpickr-inline"   placeholder="Username" name="username"/>
                                     </div>
@@ -70,19 +70,19 @@
                                 </div>
                                 <div class="col-md-6 col-12">
                                     <div class="form-group">
-                                        <label for="company-column">passport_issue_date</label>
+                                        <label for="company-column">Passport_issue_date</label>
                                         <input type="date" id="company-column" class="form-control" name="passport_issue_date" placeholder="passport_issue_date" />
                                     </div>
                                 </div>
                                 <div class="col-md-6 col-12">
                                     <div class="form-group">
-                                        <label for="company-column">passport_expiry_date</label>
+                                        <label for="company-column">Passport_expiry_date</label>
                                         <input type="date" id="insurance_company" class="form-control" name="passport_expiry_date" placeholder="passport_expiry_date" />
                                     </div>
                                 </div>
                                 <div class="col-md-6 col-12">
                                     <div class="form-group">
-                                        <label>visa pic</label>
+                                        <label>Visa pic</label>
                                         <div class="custom-file">
                                             <input type="file" class="custom-file-input" id="image" name="visa" />
                                             <label class="custom-file-label" for="customFile">Choose visa pic</label>
@@ -91,13 +91,13 @@
                                 </div>
                                 <div class="col-md-6 col-12">
                                     <div class="form-group">
-                                        <label for="company-column">visa_issue_date</label>
+                                        <label for="company-column">Visa_issue_date</label>
                                         <input type="date" id="insurance_issue_date" class="form-control" name="visa_issue_date" placeholder="insurance_issue_date" />
                                     </div>
                                 </div>
                                 <div class="col-md-6 col-12">
                                     <div class="form-group">
-                                        <label for="insurance_expiry_date">visa_expiry_date</label>
+                                        <label for="insurance_expiry_date">Visa_expiry_date</label>
                                         <input type="date" id="insurance_expiry_date" class="form-control" name="visa_expiry_date" placeholder="insurance_expiry_date" />
                                     </div>
                                 </div>
