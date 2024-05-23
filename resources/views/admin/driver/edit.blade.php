@@ -10,7 +10,7 @@
                         <h4 class="card-title">Create Driver</h4>
                     </div>
                     <div class="card-body">
-                        <form class="form" action="{{route('driver.store')}}" method="POST" enctype="multipart/form-data">
+                        <form class="form" action="{{route('driver.update',[$driver->id])}}" method="POST" enctype="multipart/form-data">
                             @csrf
                             <div class="row">
                                 <div class="col-md-6 col-12">

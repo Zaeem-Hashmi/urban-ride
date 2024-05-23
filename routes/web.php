@@ -3,6 +3,7 @@
 use App\Http\Controllers\BookingController;
 use App\Http\Controllers\DriverController;
 use App\Http\Controllers\RoleController;
+use App\Http\Controllers\StaffController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\VehicleTypeController;
 use Illuminate\Support\Facades\Route;
@@ -59,5 +60,14 @@ Route::group(['middleware' => ['auth']], function() {
         Route::get('/{booking}/assignDriver',[BookingController::class,'assignDriver'])->name('booking.assignDriver');
         Route::put('/{booking}/update',[BookingController::class,'update'])->name('booking.update');
         Route::get('/{booking}/delete',[BookingController::class,'delete'])->name('booking.delete');
+    });
+    Route::group(['prefix'=>'staff'],function () {
+        Route::get('/create',[StaffController::class,'create'])->name('staff.create');
+        Route::post('/store',[StaffController::class,'store'])->name('staff.store');
+        Route::get('/index',[StaffController::class,'index'])->name('staff.index');
+        Route::post('/',[StaffController::class,'ajax'])->name('staff.ajax');
+        Route::get('/{staff}/edit',[StaffController::class,'edit'])->name('staff.edit');
+        Route::put('/{staff}/update',[StaffController::class,'update'])->name('staff.update');
+        Route::get('/{staff}/delete',[StaffController::class,'delete'])->name('staff.delete');
     });
 });
