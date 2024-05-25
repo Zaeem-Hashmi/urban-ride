@@ -43,9 +43,15 @@
     
             <div class="navbar-collapse" id="">
               <div class="user_option">
-                <a href="{{ route('login') }}">
-                  Login
-                </a>
+                @if (auth()->user())
+                  <p class="text-light pt-1" style="font-size: 30px; font-weight: 700;">
+                    {{ auth()->user()->name }}
+                  </p>
+              @else
+              <a class="" href="{{ route('login') }}">
+                Login
+              </a>
+              @endif
               </div>
               <div class="custom_menu-btn">
                 <button onclick="openNav()">
@@ -60,7 +66,15 @@
                     <a href="{{ route('about') }}">About</a>
                     <a href="{{ route('car') }}">Cars</a>
                     <a href="{{ route('contact') }}">Contact Us</a>
+                    <a href="{{ route('booking') }}">Book a ride</a>
+                    @if (auth()->user())
+                    <a href="#" onclick="document.getElementById('form').submit()">Logout</a>
+                    @else
                     <a href="{{ route('login') }}">Login</a>
+                    @endif
+                    <form hidden action="{{ route('logout') }}" method="post" id="form">
+                      @csrf
+                      </form>
                 </div>
               </div>
             </div>

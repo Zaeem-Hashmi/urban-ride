@@ -18,13 +18,37 @@ class RoleSeeder extends Seeder
         //
 
         $roles = [
-            'Admin',
             'Driver',
             'Customer'
          ];
 
          foreach ($roles as $role) {
-              Role::create(['name' => $role]);
+              $role = Role::create(['name' => $role]);
+              if ($role->name == "Driver") {
+                $role->syncPermissions([
+                    'driver-list',
+                    'driver-create',
+                    'driver-edit',
+                    'driver-delete',
+                    'booking-list',
+                    'booking-edit',
+                    'booking-create',
+                    'booking-delete',
+                    'vehicle-list',
+                    'vehicle-edit',
+                    'vehicle-create',
+                    'vehicle-delete',
+                ]);
+              }
+              if ($role->name == "Customer") {
+                $role->syncPermissions([
+                    'customer-list',
+                    'customer-edit',
+                    'customer-create',
+                    'customer-delete'
+                ]);
+              }
          }
+
     }
 }

@@ -45,15 +45,11 @@ class PermissionTableSeeder extends Seeder
          $guard_name = "web";
  
          foreach ($names as $name){
-             Permission::findOrCreate($name,$guard_name);
+             $permission = Permission::firstOrNew([
+                "name"=>$name
+             ]);
+             $permission->guard_name = $guard_name;
+             $permission->save();
          }
- 
-        //  $permissions = Permission::pluck("name")->all();
-        //  $users = User::whereHas("roles", function($q) {
-        //      $q->whereIn("name", ["Admin"]);
-        //  })->get();
-        //  foreach ($users as $user){
-        //      $user->syncPermissions($permissions);
-        //  }
     }
 }

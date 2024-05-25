@@ -25,6 +25,7 @@ Route::view('/','client.home')->name('index');
 Route::view('/about','client.about')->name('about');
 Route::view('/contact','client.contact')->name('contact');
 Route::view('/car','client.car')->name('car');
+Route::view('/booking','client.booking')->name('booking');
 
 Auth::routes();
 

@@ -53,6 +53,9 @@
                     {{ __('Login') }}
                 </button>
             </div>
+            <div class="col-md-12">
+                <a href="{{ route('register') }}" style="text-decoration: underline;">Create an account ?</a>
+            </div>
         </div>
     </form>
 @endsection

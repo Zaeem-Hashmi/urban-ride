@@ -2,12 +2,12 @@
 
 @section('content')
     <!-- book section -->
-  <section class="book_section">
+  {{-- <section class="book_section">
     <div class="form_container">
       <form action="{{route('booking.store')}}" method="POST">
         @csrf
         <div class="form-row">
-          <div class="col-lg-8">
+          <div class="col-lg-12">
             <div class="form-row">
               <div class="col-md-6">
                 <label for="parkingName">Pick Up Date</label>
@@ -43,7 +43,7 @@
               
             </div>
           </div>
-          <div class="col-lg-4">
+          <div class="col-lg-12">
             <div class="btn-container">
               <button type="submit" class="">
                 Book
@@ -57,7 +57,7 @@
     <div class="img-box">
       <img src="{{ asset('client/images/book-car.png')}}" alt="">
     </div>
-  </section>
+  </section> --}}
 
   <!-- end book section -->
 
