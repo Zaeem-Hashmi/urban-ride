@@ -16,13 +16,14 @@ class BookingController extends Controller
 
     {
 
-         $this->middleware('permission:booking-list|booking-create|booking-edit|booking-delete', ['only' => ['index','store']]);
+        //  $this->middleware('permission:booking-list|booking-create|booking-edit|booking-delete', ['only' => ['index','store']]);
 
-         $this->middleware('permission:booking-create', ['only' => ['create','store']]);
+        //  $this->middleware('permission:booking-create', ['only' => ['create','store']]);
 
-         $this->middleware('permission:booking-edit', ['only' => ['edit','update']]);
+        //  $this->middleware('permission:booking-edit', ['only' => ['edit','update']]);
 
-         $this->middleware('permission:booking-delete', ['only' => ['destroy']]);}
+        //  $this->middleware('permission:booking-delete', ['only' => ['destroy']]);
+        }
     public function store(Request $request,Booking $booking){
       $input =  $request->all();
       $input['passenger-name'] = Auth::user()->name;

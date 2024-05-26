@@ -45,7 +45,9 @@
           <div class="navbar-collapse" id="">
             <div class="user_option">
               @if (auth()->user())
-                  {{ auth()->user()->name }}
+              <p class="text-light pt-1" style="font-size: 30px; font-weight: 700;">
+                {{ auth()->user()->name }}
+              </p>
               @else
               <a href="{{ route('login') }}">
                 Login

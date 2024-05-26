@@ -14,13 +14,14 @@ class StaffController extends Controller
 
     {
 
-         $this->middleware('permission:staff-list|staff-create|staff-edit|staff-delete', ['only' => ['index','store']]);
+        //  $this->middleware('permission:staff-list|staff-create|staff-edit|staff-delete', ['only' => ['index','store']]);
 
-         $this->middleware('permission:staff-create', ['only' => ['create','store']]);
+        //  $this->middleware('permission:staff-create', ['only' => ['create','store']]);
 
-         $this->middleware('permission:staff-edit', ['only' => ['edit','update']]);
+        //  $this->middleware('permission:staff-edit', ['only' => ['edit','update']]);
 
-         $this->middleware('permission:staff-delete', ['only' => ['destroy']]);}
+        //  $this->middleware('permission:staff-delete', ['only' => ['destroy']]);
+        }
     public function create(){
         return view('admin.staff.create');
     }

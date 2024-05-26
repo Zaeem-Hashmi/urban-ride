@@ -15,13 +15,14 @@ class VehicleTypeController extends Controller
 
     {
 
-         $this->middleware('permission:vehicle-list|vehicle-create|vehicle-edit|vehicle-delete', ['only' => ['index','store']]);
+        //  $this->middleware('permission:vehicle-list|vehicle-create|vehicle-edit|vehicle-delete', ['only' => ['index','store']]);
 
-         $this->middleware('permission:vehicle-create', ['only' => ['create','store']]);
+        //  $this->middleware('permission:vehicle-create', ['only' => ['create','store']]);
 
-         $this->middleware('permission:vehicle-edit', ['only' => ['edit','update']]);
+        //  $this->middleware('permission:vehicle-edit', ['only' => ['edit','update']]);
 
-         $this->middleware('permission:vehicle-delete', ['only' => ['destroy']]);}
+        //  $this->middleware('permission:vehicle-delete', ['only' => ['destroy']]);
+        }
     public function create(){
         $drivers = Driver::get();
         return view('admin.vehicles.create',compact('drivers'));
