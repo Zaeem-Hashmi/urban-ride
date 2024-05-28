@@ -25,7 +25,7 @@ class BookingController extends Controller
          $this->middleware('permission:booking-delete', ['only' => ['destroy']]);}
     public function store(Request $request,Booking $booking){
       $input =  $request->all();
-      $input['passenger-name'] = Auth::user()->name;
+      $input['passenger_name'] = Auth::user()->name;
       $input['customer_id'] = Auth::user()->id;
       $booking->create($input);
       return redirect()->back();
@@ -47,8 +47,26 @@ class BookingController extends Controller
     }
     public function update(Request $request,Booking $booking){
       $input = $request->all();
-      $input['status'] = 'done';
+      $input['status'] = 'assigned';
       $booking->update($input);
+      $driver = Driver::findOrFail($input['driver_id']);
+      $driver->update(['is_available' => 1]);
       return redirect()->back();
     }
+    public function jobDone(Request $request, Booking $booking) {
+        $booking->update([
+            'status' => 'done'
+        ]);
+        $driver = Driver::findOrFail($booking->driver_id);
+        $driver->update(['is_available' => 0]);
+        return redirect()->back();
+    }
+    // client side
+    public function bookings(){
+        $user =auth()->user();
+        $bookings = Booking::where('passenger_name', $user->name)->get();
+        // dd($bookings);
+        return view('client.rides',compact('bookings'));
+    }
+
 }

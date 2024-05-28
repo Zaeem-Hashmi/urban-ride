@@ -45,7 +45,9 @@
           <div class="navbar-collapse" id="">
             <div class="user_option">
               @if (auth()->user())
-                  {{ auth()->user()->name }}
+                  <div class="text-white">
+                    {{ auth()->user()->name }}
+                  </div>
               @else
               <a href="{{ route('login') }}">
                 Login
@@ -66,6 +68,10 @@
                 <a href="{{ route('car') }}">Cars</a>
                 <a href="{{ route('contact') }}">Contact Us</a>
                 <a href="{{ route('booking') }}">Book a ride</a>
+                @if (auth()->user())
+                <a href="{{ route('rides') }}">Rides</a>
+                @endif
+
                 @if (auth()->user())
                 <a href="#" onclick="document.getElementById('form').submit()">Logout</a>
                 @else

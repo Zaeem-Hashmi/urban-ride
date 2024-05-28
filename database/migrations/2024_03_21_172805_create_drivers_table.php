@@ -15,13 +15,8 @@ return new class extends Migration
     {
         Schema::create('drivers', function (Blueprint $table) {
             $table->id();
-           
-            $table->string('name')->nullable();
-            $table->string('email')->nullable();
             $table->boolean('is_available')->default(0);
             $table->string('address')->nullable();
-            $table->string('username')->nullable();
-            $table->string('password')->nullable();
             $table->bigInteger('phone_number')->nullable();
             $table->string('image')->nullable();
             $table->string('passport')->nullable();
@@ -43,8 +38,6 @@ return new class extends Migration
             $table->string('IBAN')->nullable();
             $table->string('bank_name')->nullable();
             $table->string('branch_name')->nullable();
-
-            $table->string('vehicle_number');
             $table->unsignedBigInteger('user_id');
             // $table->unsignedBigInteger('vehicle_type_id');
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');

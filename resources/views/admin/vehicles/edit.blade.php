@@ -123,7 +123,7 @@
                                             @foreach ($drivers as $driver)
                                             <option value={{$driver->id}} @if ($driver->id == $vehicleType->driver->id)
                                                 selected
-                                            @endif>{{$driver->name}}</option>
+                                            @endif>{{$driver->user->name}}</option>
                                             @endforeach
                                            
                                         </select>

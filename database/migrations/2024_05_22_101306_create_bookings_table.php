@@ -17,12 +17,12 @@ return new class extends Migration
             $table->id();
             $table->unsignedBigInteger('customer_id')->nullable();
             $table->unsignedBigInteger('driver_id')->nullable();
-            $table->date('pickup-date');
-            $table->time('pickup-time');
-            $table->string('passenger-name')->nullable();
-            $table->string('pickup-location');
-            $table->integer('no-of-passengers');
-            $table->string('dropOff-location');
+            $table->date('pickup_date');
+            $table->time('pickup_time');
+            $table->string('passenger_name')->nullable();
+            $table->string('pickup_location');
+            $table->integer('no_of_passengers');
+            $table->string('dropOff_location');
             $table->longText('desc')->nullable();
             $table->string('status')->default('requested');
             $table->foreign('customer_id')->references('id')->on('users')->onDelete('cascade');

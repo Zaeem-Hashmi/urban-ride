@@ -18,7 +18,6 @@
                                 <th>Email</th>
                                 <th>is_available</th>
                                 <th>Address</th>
-                                <th>username</th>
                                 <th>phone_number</th>
                                 <th>image</th>
                                 <th>passport</th>
@@ -40,8 +39,6 @@
                                 <th>IBAN</th>
                                 <th>bank_name</th>
                                 <th>branch_name</th>
-                                <th>vehicle_number</th>
-                                <th>User</th>
                                 <th>Actions</th>
                             </tr>
                         </thead>
@@ -73,21 +70,18 @@
 
                 },
                 columns: [{
-                data: 'name',
+                data: 'username',
                 defaultContent: 'No name'
                 },
 
                 {
-                data: 'email'
+                data: 'useremail'
                 },
                 {
                 data: 'is_available'
                 },
                 {
                 data: 'address'
-                },
-                {
-                data: 'username'
                 },
                 {
                 data: 'phone_number'
@@ -176,14 +170,6 @@
                 {
                 data: 'branch_name'
                 },
-                {
-                data: 'vehicle_number'
-                },
-                {
-                data: 'user'
-                },
-
-
                 {
                         data: 'id',
                         render: function(data) {

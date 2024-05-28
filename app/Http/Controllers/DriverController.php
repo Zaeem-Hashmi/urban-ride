@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Booking;
 use App\Models\Driver;
 use App\Models\User;
 use App\Models\VehicleType;
@@ -28,6 +29,7 @@ class DriverController extends Controller
     }
     public function store(Request $request,Driver $driver){
         $input = $request->all();
+        // dd($input);
         if ($request->hasFile('image')) {
             $file = $request->file('image');
             $filename = time() . '.' . $file->getClientOriginalExtension();
@@ -79,6 +81,7 @@ class DriverController extends Controller
             $input["driving_license"] = "$filePath";
         }
         $driver->create($input);
+       
         return redirect()->back();
     }
     public function index(){
@@ -89,14 +92,18 @@ class DriverController extends Controller
         return DataTables::eloquent($query)->addColumn('vehicle', function (Driver $driver) {
             $vehicle = $driver->vehicles()->get()->pluck("name")->toArray();
             return implode(',',$vehicle);
-        })->addColumn('user', function (Driver $driver) {
-            $user = $driver->user->name;
-            return $user;
-        })->toJson();
+        })->addColumn('username', function (Driver $driver) {
+            $username = $driver->user->name;
+            return $username;
+        })->addColumn('useremail', function (Driver $driver) {
+            $useremail = $driver->user->email;
+            return $useremail;
+        }
+            )->toJson();
     }
     public function edit(Driver $driver){
         $users =User::get();
-        return view('admin.driver.edit',compact('driver','vehicle_types','users'));
+        return view('admin.driver.edit',compact('driver','users'));
     }
     public function update(Request $request, Driver $driver){
         $input = $request->all();
@@ -165,5 +172,31 @@ class DriverController extends Controller
         $driver->delete();
         return redirect()->back();
     }
+    // driver view
 
+    public function driverInfo(){
+        $user = auth()->user(); 
+        // dd($user);
+         if (auth()->user()->hasRole('Driver')) {
+            $usersInfo = Driver::where('user_id', $user->id)->get();
+            // dd($usersInfo);
+            return view('admin.driverView.diverInfo',compact('usersInfo'));
+        }
+    }
+
+    public function vehicle() {
+        $user = auth()->user(); 
+        $driverId = Driver::where('user_id', $user->id)->pluck('id');
+        $vehicles = VehicleType::where('driver_id',$driverId)->get();
+        // dd($vehicles);
+        return view('admin.driverView.vehicles',compact('vehicles'));
+    }
+    public function bookings(){
+        $user =auth()->user();
+        $driverId = Driver::where('user_id', $user->id)->pluck('id');
+        $bookings = Booking::where('driver_id', $driverId)->get();
+        // dd($bookings);
+        return view('admin.driverView.bookings',compact('bookings'));
+    }
+    
 }

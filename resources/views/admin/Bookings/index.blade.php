@@ -53,23 +53,23 @@
 
                 },
                 columns: [{
-                        data: 'passenger-name'
+                        data: 'passenger_name'
                     },
 
                     {
-                        data: 'pickup-date'
+                        data: 'pickup_date'
                     },
                     {
-                        data: 'pickup-time'
+                        data: 'pickup_time'
                     },
                     {
-                        data: 'pickup-location'
+                        data: 'pickup_location'
                     },
                     {
-                        data: 'no-of-passengers'
+                        data: 'no_of_passengers'
                     },
                     {
-                        data: 'dropOff-location'
+                        data: 'dropOff_location'
                     },
                     {
                         data: 'desc'
