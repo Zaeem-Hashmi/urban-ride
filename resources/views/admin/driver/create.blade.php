@@ -13,35 +13,11 @@
                         <form class="form" action="{{route('driver.store')}}" method="POST" enctype="multipart/form-data">
                             @csrf
                             <div class="row">
-                                <div class="col-md-6 col-12">
-                                    <div class="form-group">
-                                        <label for="first-name-column">Name</label>
-                                        <input type="text" id="first-name-column" class="form-control" placeholder="Name" name="name" />
-                                    </div>
-                                </div>
-                                <div class="col-md-6 col-12">
-                                    <div class="form-group">
-                                        <label for="last-name-column">Email</label>
-                                        <input type="email" id="last-name-column" class="form-control" placeholder="Email" name="email" />
-                                    </div>
-                                </div>
+                                
                                 <div class="col-md-6 col-12">
                                     <div class="form-group">
                                         <label for="city-column">Address</label>
                                         <input type="text" id="city-column" class="form-control" placeholder="City" name="address" />
-                                    </div>
-                                </div>
-                                <div class="col-md-6 col-12">
-                                    <div class="form-group">
-                                        <label>Username</label>
-                                        {{-- <input type="text" class="form-control flatpickr-inline" placeholder="YYYY-MM-DD" /> --}}
-                                        <input type="text"  class="form-control flatpickr-inline"   placeholder="Username" name="username"/>
-                                    </div>
-                                </div>
-                                <div class="col-md-6 col-12">
-                                    <div class="form-group">
-                                        <label for="company-column">Password</label>
-                                        <input type="password" id="company-column" class="form-control" name="password" placeholder="password" />
                                     </div>
                                 </div>
                                 <div class="col-md-6 col-12">
@@ -187,12 +163,6 @@
                                     <div class="form-group">
                                         <label for="company-column">branch_name</label>
                                         <input type="text" id="company-column" class="form-control" name="branch_name" placeholder="branch_name" />
-                                    </div>
-                                </div>
-                                <div class="col-md-6 col-12">
-                                    <div class="form-group">
-                                        <label for="company-column">vehicle_number</label>
-                                        <input type="text" id="company-column" class="form-control" name="vehicle_number" placeholder="vehicle_number" />
                                     </div>
                                 </div>
                               

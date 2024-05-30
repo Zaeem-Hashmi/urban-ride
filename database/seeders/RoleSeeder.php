@@ -45,7 +45,11 @@ class RoleSeeder extends Seeder
                     'customer-list',
                     'customer-edit',
                     'customer-create',
-                    'customer-delete'
+                    'customer-delete',
+                    'booking-list',
+                    'booking-edit',
+                    'booking-create',
+                    'booking-delete',
                 ]);
               }
          }

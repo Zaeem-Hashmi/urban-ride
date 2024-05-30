@@ -12,4 +12,15 @@ class Booking extends Model
     public function driver(){
         return $this->hasOne(Driver::class);
     }
+    // protected static function booted()
+    // {
+    //     static::updated(function ($booking) {
+    //         $driver = Driver::where('id', $booking->driver_id)->get();
+    //         dd($driver);
+    //         if ($driver) {
+    //             $driver->is_available = 1;
+    //             $driver->save();
+    //         }
+    //     });
+    // }
 }

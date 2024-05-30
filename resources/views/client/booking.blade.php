@@ -19,27 +19,27 @@
                             <div class="form-row">
                               <div class="col-md-6">
                                 <label for="parkingName">Pick Up Date</label>
-                                <input type="date" class="form-control" placeholder="Pick Up Date " name="pickup-date">
+                                <input type="date" class="form-control" placeholder="Pick Up Date " name="pickup_date">
                               </div>
                               <div class="col-md-6">
                                 <label for="parkingNumber">Pickup time</label>
-                                <input type="time" class="form-control" placeholder="pickup-time " name="pickup-time">
+                                <input type="time" class="form-control" placeholder="pickup-time " name="pickup_time">
                               </div>
                             </div>
                             <div class="form-row">
                               <div class="col-md-12">
                                 <label for="parkingNumber">Pickup Location</label>
-                                <input type="text" class="form-control" placeholder="pickup-location " name="pickup-location">
+                                <input type="text" class="form-control" placeholder="pickup-location " name="pickup_location">
                               </div>
                             </div>
                             <div class="form-row">
                               <div class="col-md-6">
                                 <label for="parkingName">No of Passengers</label>
-                                <input type="number" class="form-control" placeholder="no-of-passengers" name="no-of-passengers">
+                                <input type="number" class="form-control" placeholder="no-of-passengers" name="no_of_passengers">
                               </div>
                               <div class="col-md-6">
                                 <label for="parkingNumber">Drop Location</label>
-                                <input type="text" class="form-control" placeholder="Drop Location" name="dropOff-location">
+                                <input type="text" class="form-control" placeholder="Drop Location" name="dropOff_location">
                               </div>
                             </div>
                 

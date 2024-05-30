@@ -69,6 +69,10 @@
                 <a href="{{ route('contact') }}">Contact Us</a>
                 <a href="{{ route('booking') }}">Book a ride</a>
                 @if (auth()->user())
+                <a href="{{ route('rides') }}">Rides</a>
+                @endif
+
+                @if (auth()->user())
                 <a href="#" onclick="document.getElementById('form').submit()">Logout</a>
                 @else
                 <a href="{{ route('login') }}">Login</a>
