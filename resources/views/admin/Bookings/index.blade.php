@@ -35,6 +35,13 @@
     </div>
 @endsection
 @section('page-js')
+<script src="/assets/js/datatable/datatables.buttons.min.js"></script>
+<script src="/assets/js/datatable/buttons.bootstrap4.min.js"></script>
+<script src="/assets/js/datatable/jszip.min.js"></script>
+<script src="/assets/js/datatable/pdfmake.min.js"></script>
+<script src="/assets/js/datatable/vfs_fonts.js"></script>
+<script src="/assets/js/datatable/buttons.html5.min.js"></script>
+<script src="/assets/js/datatable/buttons.print.min.js"></script>
     <script>
         $(function() {
             $(document).ready(function() {
@@ -44,9 +51,36 @@
                     }
                 });
             });
-            var table = $('.datatable').DataTable({
-                processing: true,
-                serverSide: true,
+            var table = $('.datatable').dataTable({
+                'bDestroy': true,
+                    'processing': true,
+                    'serverSide': true,
+                    'dom': 'Blfrtip',
+                    'paging': true,
+                'buttons': [
+                        {
+                            extend: 'pdf',
+                            footer: true,
+                            exportOptions: {
+                                columns: [0,1,2,3,4,5,7]
+                            }
+                        },
+                        {
+                            extend: 'csv',
+                            footer: false,
+                            exportOptions: {
+                                columns: [0,1,2,3,4,5,7]
+                            }
+
+                        },
+                        {
+                            extend: 'excel',
+                            footer: false,
+                            exportOptions: {
+                                columns: [0,1,2,3,4,5,7]
+                            }
+                        }
+                    ],
                 ajax: {
                     url: '{{ route('booking.ajax') }}',
                     type: "POST",
