@@ -33,6 +33,7 @@ Auth::routes();
 
 Route::group(['middleware' => ['auth']], function() {
     Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+    Route::post('/home', [App\Http\Controllers\HomeController::class, 'ajax'])->name('ajax');
 
     Route::resource('roles', RoleController::class);
     Route::resource('users', UserController::class);

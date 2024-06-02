@@ -85,6 +85,55 @@
             </div>
         </div>
     </div>
+    <div class="col-12">
+        <div class="card card-congratulation-medal">
+            <div class="card-body">
+                <canvas id="myChart"></canvas>
+            </div>
+        </div>
+    </div>
     <!--/ Statistics Card -->
 </div>
+@endsection
+
+@section('page-js')
+<script>
+    var data, labels;
+    $.ajaxSetup({
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        }
+    });
+    $.ajax({
+            method: "POST"
+            , url: `/home`
+        , })
+        .done(function(response) {
+            data = response.labels;
+            labels = response.data;
+            const ctx = document.getElementById('myChart');
+            new Chart(ctx, {
+                type: 'line'
+                , data: {
+                    labels: data
+                    , datasets: [{
+                        label: "expense"
+                        , data: labels
+                        , borderWidth: 1
+                    }]
+                }
+                , options: {
+                    scales: {
+                        y: {
+                            beginAtZero: true
+                        }
+                    }
+                }
+            });
+        }).fail(function(error) {
+            alert('fail')
+        });
+
+</script>
+
 @endsection
