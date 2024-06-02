@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\BookingController;
 use App\Http\Controllers\DriverController;
+use App\Http\Controllers\ExpenseController;
 use App\Http\Controllers\RoleController;
 use App\Http\Controllers\StaffController;
 use App\Http\Controllers\UserController;
@@ -66,6 +67,15 @@ Route::group(['middleware' => ['auth']], function() {
         Route::put('/{booking}/update',[BookingController::class,'update'])->name('booking.update');
         Route::get('/{booking}/jobDone',[BookingController::class,'jobDone'])->name('booking.jobDone');
         Route::get('/{booking}/delete',[BookingController::class,'delete'])->name('booking.delete');
+    });
+    Route::group(['prefix'=>'expense'],function () {
+        Route::post('/store',[ExpenseController::class,'store'])->name('expense.store');
+        Route::get('/create',[ExpenseController::class,'create'])->name('expense.create');
+        Route::get('{exp}/edit',[ExpenseController::class,'edit'])->name('expense.edit');
+        Route::get('/index',[ExpenseController::class,'index'])->name('expense.index');
+        Route::post('/',[ExpenseController::class,'ajax'])->name('expense.ajax');
+        Route::post('/{exp}/update',[ExpenseController::class,'update'])->name('expense.update');
+        Route::get('/{exp}/delete',[ExpenseController::class,'delete'])->name('expense.delete');
     });
     Route::group(['prefix'=>'staff'],function () {
         Route::get('/create',[StaffController::class,'create'])->name('staff.create');

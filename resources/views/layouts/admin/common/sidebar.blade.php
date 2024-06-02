@@ -121,6 +121,10 @@
                             data-feather="mail"></i><span class="menu-title text-truncate"
                             data-i18n="Email">Bookings</span></a>
                 </li>
+                <li class=" nav-item"><a class="d-flex align-items-center" href="{{ route('expense.index') }}"><i
+                    data-feather="mail"></i><span class="menu-title text-truncate"
+                    data-i18n="Email">Expenses</span></a>
+        </li>
                 <li class=" nav-item"><a class="d-flex align-items-center" href="#"><i
                             data-feather='gitlab'></i><span class="menu-title text-truncate"
                             data-i18n="vehicles">Vehicles</span></a>
